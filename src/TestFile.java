@@ -18,18 +18,15 @@ public class TestFile {
 
 	@BeforeEach
 	public void setUp() {
-		System.setProperty("webdriver.gecko.driver", "/usr/local/bin/chromedriver");       // specify path to the driver
-		driver = new ChromeDriver();    // open a web browser
+		System.setProperty("webdriver.gecko.driver", "/usr/local/bin/chromedriver");
+		driver = new ChromeDriver();
 
-//      System.setProperty("webdriver.chrome.driver", "/path-to-your-driver/chromedriver");   // specify path to the driver
-//      driver = new ChromeDriver();   // open a web browser
-
-		driver.get(url);                 // open the given url
+		driver.get(url);
 	}
 
 	@AfterEach
 	public void teardown() {
-		driver.quit();                   // close the browser
+		driver.quit();
 	}
 
 	@Test
