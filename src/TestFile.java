@@ -6,7 +6,35 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;       // for chrome
+import org.openqa.selenium.chrome.ChromeDriver;
+
+// to handle alert popup window
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.Alert;
 
 public class TestFile {
+	private WebDriver driver;
+	private String url = "http://www.cs.virginia.edu/~up3f/swtesting/sut/convert.php";  // subject under test (sut)
+
+	@BeforeEach
+	public void setUp() {
+		System.setProperty("webdriver.gecko.driver", "/usr/local/bin/chromedriver");       // specify path to the driver
+		driver = new ChromeDriver();    // open a web browser
+
+//      System.setProperty("webdriver.chrome.driver", "/path-to-your-driver/chromedriver");   // specify path to the driver
+//      driver = new ChromeDriver();   // open a web browser
+
+		driver.get(url);                 // open the given url
+	}
+
+	@AfterEach
+	public void teardown() {
+		driver.quit();                   // close the browser
+	}
+
+	@Test
+	public void test_openURL() {
+		// check if we are on the right page
+		assertEquals(driver.getTitle(), "Measurement Conversion");
+	}
 }
