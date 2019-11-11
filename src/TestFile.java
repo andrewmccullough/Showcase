@@ -12,12 +12,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.Alert;
 
-public class TestFile {
+class TestFile {
 	private WebDriver driver;
 	private String url = "http://www.cs.virginia.edu/~up3f/swtesting/sut/convert.php";  // subject under test (sut)
 
 	@BeforeEach
-	public void setUp() {
+	void setUp() {
 		System.setProperty("webdriver.gecko.driver", "/usr/local/bin/chromedriver");
 		driver = new ChromeDriver();
 
@@ -25,12 +25,12 @@ public class TestFile {
 	}
 
 	@AfterEach
-	public void teardown() {
+	void teardown() {
 		driver.quit();
 	}
 
 	@Test
-	public void test_openURL() {
+	void test_openURL() {
 		// check if we are on the right page
 		assertEquals(driver.getTitle(), "Measurement Conversion");
 	}
