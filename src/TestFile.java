@@ -14,7 +14,7 @@ import org.openqa.selenium.Alert;
 
 class TestFile {
 	private WebDriver driver;
-	private String url = "http://www.cs.virginia.edu/~up3f/swtesting/sut/convert.php";  // subject under test (sut)
+	private String url = "http://pod01.cs.virginia.edu:8080/computeGPA/calculategpa.jsp";  // subject under test (sut)
 
 	@BeforeEach
 	void setUp() {
