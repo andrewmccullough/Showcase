@@ -32,6 +32,6 @@ class TestFile {
 	@Test
 	void test_openURL() {
 		// check if we are on the right page
-		assertEquals(driver.getTitle(), "Measurement Conversion");
+		assertEquals("Grade Calculator", driver.getTitle());
 	}
 }
