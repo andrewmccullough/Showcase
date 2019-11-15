@@ -34,4 +34,33 @@ class TestFile {
 		// check if we are on the right page
 		assertEquals("Grade Calculator", driver.getTitle());
 	}
+
+	@Test
+	void test_no_Fs() {
+		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(1)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		assertFalse(element.getAttribute("innerHTML").contains("Fs cannot be used to graduate, so are not included in the total number of hours accumulated. Fs are also not included in your GPA calculation."));
+	}
+
+	@Test
+	void test_F() {
+		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(8)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		System.out.println(element.getAttribute("innerHTML"));
+		assertTrue(element.getAttribute("innerHTML").contains("Fs cannot be used to graduate, so are not included in the total number of hours accumulated."));
+	}
 }
