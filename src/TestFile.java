@@ -148,7 +148,7 @@ class TestFile {
 
 		WebElement element = driver.findElement(By.cssSelector("body"));
 		System.out.println(element.getAttribute("innerHTML"));
-		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 3.33"));
+		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 3.33")); // current GPA higher than remaining credits must be
 		assertTrue(element.getAttribute("innerHTML").contains("You need 29 more hours to graduate."));
 	}
 	@Test
@@ -185,7 +185,7 @@ class TestFile {
 		submit.click();
 
 		WebElement element = driver.findElement(By.cssSelector("body"));
-		assertTrue(element.getAttribute("innerHTML").contains("at least a B+ average")); // Need better grades to graduate
+		assertTrue(element.getAttribute("innerHTML").contains("at least a B+ average")); // Remaining credits must be higher than current GPA.
 		assertTrue(element.getAttribute("innerHTML").contains("You need 17 more hours to graduate."));
 	}
 
