@@ -185,9 +185,8 @@ class TestFile {
 		submit.click();
 
 		WebElement element = driver.findElement(By.cssSelector("body"));
-		assertTrue(element.getAttribute("innerHTML").contains("at least a B+ average")); //Need better grades to graduate
+		assertTrue(element.getAttribute("innerHTML").contains("at least a B+ average")); // Need better grades to graduate
 		assertTrue(element.getAttribute("innerHTML").contains("You need 17 more hours to graduate."));
-		assertTrue(element.getAttribute("innerHTML").contains("Also, you may only use two grades of C in your MS degree."));
 	}
 
 	@Test
@@ -260,7 +259,7 @@ class TestFile {
 		submit.click();
 		
 		WebElement element = driver.findElement(By.cssSelector("body"));
-		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 3.")); //Dont need to know what the rest is, just need to know that it's >= 3.0
+		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 3.")); // Don't need to know what the rest is, just need to know that it's >= 3.0
 		assertTrue(element.getAttribute("innerHTML").contains("You have 31 hours, which is enough to graduate with an MS degree."));
 	}
 
