@@ -260,7 +260,8 @@ class TestFile {
 		
 		WebElement element = driver.findElement(By.cssSelector("body"));
 		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 3.")); // Don't need to know what the rest is, just need to know that it's >= 3.0
-		assertTrue(element.getAttribute("innerHTML").contains("You have 31 hours, which is enough to graduate with an MS degree."));
+		assertTrue(element.getAttribute("innerHTML").contains("which is enough to graduate with an MS degree."));
+		assertFalse(element.getAttribute("innerHTML").contains("However, you do not have the minimum GPA of 3.0."));
 	}
 
 	@Test
@@ -334,7 +335,7 @@ class TestFile {
 		
 		WebElement element = driver.findElement(By.cssSelector("body"));
 		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 2.")); //Dont need to know what the rest is, just need to know that it's < 3.0
-		assertTrue(element.getAttribute("innerHTML").contains("You have 31 hours, which is enough to graduate with an MS degree."));
+		assertTrue(element.getAttribute("innerHTML").contains("which is enough to graduate with an MS degree."));
 		assertTrue(element.getAttribute("innerHTML").contains("However, you do not have the minimum GPA of 3.0."));
 	}
 }
