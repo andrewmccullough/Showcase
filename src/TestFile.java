@@ -388,4 +388,131 @@ class TestFile {
 		WebElement element = driver.findElement(By.cssSelector("body"));
 		assertTrue(element.getAttribute("innerHTML").contains("You need 24 more hours to graduate."));
 	}
+
+	@Test
+	void test_0_credit_course() {
+		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input[type=text]"));
+		assertEquals("input", credits.getTagName());
+		credits.clear();
+		credits.sendKeys("0");
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		assertTrue(element.getAttribute("innerHTML").contains("You need 30 more hours to graduate."));
+		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 0.0"));
+	}
+
+	@Test
+	void test_1_credit_course() {
+		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input[type=text]"));
+		assertEquals("input", credits.getTagName());
+		credits.clear();
+		credits.sendKeys("1");
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		assertTrue(element.getAttribute("innerHTML").contains("You need 29 more hours to graduate."));
+		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 4.0"));
+	}
+
+	@Test
+	void test_2_credit_course() {
+		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input[type=text]"));
+		assertEquals("input", credits.getTagName());
+		credits.clear();
+		credits.sendKeys("2");
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		assertTrue(element.getAttribute("innerHTML").contains("You need 28 more hours to graduate."));
+		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 4.0"));
+	}
+
+	@Test
+	void test_3_credit_course() {
+		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input[type=text]"));
+		assertEquals("input", credits.getTagName());
+		credits.clear();
+		credits.sendKeys("3");
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		assertTrue(element.getAttribute("innerHTML").contains("You need 27 more hours to graduate."));
+		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 4.0"));
+	}
+
+	@Test
+	void test_4_to_29_credit_course() {
+		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input[type=text]"));
+		assertEquals("input", credits.getTagName());
+		credits.clear();
+		credits.sendKeys("14");
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		assertTrue(element.getAttribute("innerHTML").contains("You need 16 more hours to graduate."));
+		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 4.0"));
+	}
+
+	@Test
+	void test_30_credit_course() { // TODO : what?
+		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input[type=text]"));
+		assertEquals("input", credits.getTagName());
+		credits.clear();
+		credits.sendKeys("30");
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		assertTrue(element.getAttribute("innerHTML").contains("You have 30 hours, which is enough to graduate with an MS degree."));
+		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 4.0"));
+	}
+
+	@Test
+	void test_negative_credit_course() {
+		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input[type=text]"));
+		assertEquals("input", credits.getTagName());
+		credits.clear();
+		credits.sendKeys("-5");
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+
+		assertThrows(Exception.class, () -> {
+			submit.click();
+		});
+	}
+
+	@Test
+	void test_invalid_character_credit_course() {
+		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input[type=text]"));
+		assertEquals("input", credits.getTagName());
+		credits.clear();
+		credits.sendKeys("-5");
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+
+		assertThrows(Exception.class, () -> {
+			submit.click();
+		});
+	}
+
 }
