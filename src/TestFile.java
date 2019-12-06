@@ -10,13 +10,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TestFile {
 	private WebDriver driver;
-	private String url = "http://pod01.cs.virginia.edu:8080/computeGPA/calculategpa.jsp";  // subject under test (sut)
 
 	@BeforeEach
 	void setUp() {
 		System.setProperty("webdriver.gecko.driver", "/usr/local/bin/chromedriver");
 		driver = new ChromeDriver();
 
+		String url = "http://pod01.cs.virginia.edu:8080/computeGPA/calculategpa.jsp";
 		driver.get(url);
 	}
 
