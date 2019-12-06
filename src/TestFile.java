@@ -338,4 +338,54 @@ class TestFile {
 		assertTrue(element.getAttribute("innerHTML").contains("which is enough to graduate with an MS degree."));
 		assertTrue(element.getAttribute("innerHTML").contains("However, you do not have the minimum GPA of 3.0."));
 	}
+
+	@Test
+	void test_empty_string() {
+		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(1) > input[type=text]"));
+		assertEquals("input", input.getTagName());
+		input.sendKeys("");
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		assertTrue(element.getAttribute("innerHTML").contains("You need 27 more hours to graduate."));
+	}
+
+	@Test
+	void test_a_string() {
+		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(1) > input[type=text]"));
+		assertEquals("input", input.getTagName());
+		input.sendKeys("Calculus III");
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		assertTrue(element.getAttribute("innerHTML").contains("You need 27 more hours to graduate."));
+	}
+
+	@Test
+	void test_strings_and_empty_strings() {
+		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(1) > input[type=text]"));
+		assertEquals("input", input.getTagName());
+		input.sendKeys("Calculus III");
+
+		WebElement another = driver.findElement(By.cssSelector("#theForm > a"));
+		assertEquals("Add another course", another.getAttribute("innerHTML"));
+		another.click();
+
+		input = driver.findElement(By.cssSelector("#theForm > table > tbody > tr:nth-child(3) > td:nth-child(1) > input[type=text]"));
+		assertEquals("input", input.getTagName());
+		input.sendKeys("");
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		assertTrue(element.getAttribute("innerHTML").contains("You need 24 more hours to graduate."));
+	}
 }
