@@ -771,9 +771,7 @@ class TestFile {
 		WebElement submit = driver.findElement(By.name("submitCourses"));
 		assertEquals("button", submit.getTagName());
 
-		assertThrows(Exception.class, () -> {
-			submit.click();
-		});
+		assertThrows(Exception.class, submit::click);
 	}
 
 	@Test
@@ -786,9 +784,7 @@ class TestFile {
 		WebElement submit = driver.findElement(By.name("submitCourses"));
 		assertEquals("button", submit.getTagName());
 
-		assertThrows(Exception.class, () -> {
-			submit.click();
-		});
+		assertThrows(Exception.class, submit::click);
 	}
 
 }
