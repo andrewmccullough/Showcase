@@ -253,24 +253,6 @@ class TestFile {
 		assertTrue(element.getAttribute("innerHTML").contains("Fs cannot be used to graduate, so are not included in the total number of hours accumulated."));
 	}
 
-	// Andrew McCullough, asm4wm
-	@Test
-	void test_blank_credits() { // Matt Hancock (mgh3x)
-		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input:nth-child(1)"));
-		credits.clear();
-
-		WebElement submit = driver.findElement(By.name("submitCourses"));
-		assertEquals("button", submit.getTagName());
-		submit.click();
-
-		WebElement element = driver.findElement(By.cssSelector("body"));
-		System.out.println(element.getAttribute("innerHTML"));
-		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 0.0"));
-		assertTrue(element.getAttribute("innerHTML").contains("You need 30 more hours to graduate."));
-
-		// entering no credits at all should be treated as 0 credits
-	}
-
 	@Test
 	void test_0_credits() { // Matt Hancock (mgh3x)
 
@@ -724,6 +706,24 @@ class TestFile {
 
 		WebElement element = driver.findElement(By.cssSelector("body"));
 		assertTrue(element.getAttribute("innerHTML").contains("You need 24 more hours to graduate."));
+	}
+
+	// Andrew McCullough, asm4wm
+	@Test
+	void test_blank_credits() { // Matt Hancock (mgh3x)
+		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input:nth-child(1)"));
+		credits.clear();
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		System.out.println(element.getAttribute("innerHTML"));
+		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 0.0"));
+		assertTrue(element.getAttribute("innerHTML").contains("You need 30 more hours to graduate."));
+
+		// entering no credits at all should be treated as 0 credits
 	}
 
 	@Test
