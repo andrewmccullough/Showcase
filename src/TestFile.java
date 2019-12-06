@@ -273,12 +273,24 @@ class TestFile {
 
 	@Test
 	void test_0_credits() { // Matt Hancock (mgh3x)
+
 		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input:nth-child(1)"));
+		assertEquals("input", credits.getTagName());
 		credits.clear();
 		credits.sendKeys("0");
+
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(6)"));
 		assertEquals("input", input.getTagName());
 		input.click();
+
+		WebElement another = driver.findElement(By.cssSelector("#theForm > a"));
+		assertEquals("Add another course", another.getAttribute("innerHTML"));
+		another.click();
+
+		credits = driver.findElement(By.cssSelector("#theForm > table > tbody > tr:nth-child(3) > td:nth-child(2) > input[type=text]"));
+		assertEquals("input", credits.getTagName());
+		credits.clear();
+		credits.sendKeys("0");
 
 		WebElement submit = driver.findElement(By.name("submitCourses"));
 		assertEquals("button", submit.getTagName());
