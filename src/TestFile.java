@@ -910,4 +910,83 @@ class TestFile {
 		System.out.println(element.getAttribute("innerHTML"));
 		assertFalse(element.getAttribute("innerHTML").contains("which is enough to graduate with an MS degree")); // should be false, as 10 courses are required
 	}
+	@Test
+	void test_back_button() {
+		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(1)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+		
+		input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(7)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+
+		submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+		
+		driver.navigate().back();
+		
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 4.0"));
+	}
+	@Test
+	void test_forward_button() {
+		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(1)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+		
+		input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(7)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+
+		submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+		
+		driver.navigate().back();
+		driver.navigate().forward();
+		
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 2.0"));
+	}
+	@Test
+	void test_refresh_button_no_resubmit() {
+		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(1)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+		
+		driver.navigate().refresh();
+		driver.switchTo().alert().dismiss();
+		
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 4.0"));
+	}
+	@Test
+	void test_refresh_button_do_resubmit() {
+		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(1)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+		
+		driver.navigate().refresh();
+		driver.switchTo().alert().accept();
+		
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 4.0"));
+	}
 }
