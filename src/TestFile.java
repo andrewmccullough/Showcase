@@ -225,7 +225,7 @@ class TestFile {
 
 	// Andrew McCullough, asm4wm
 	@Test
-	void test_no_Fs() { // Matt Hancock (mgh3x)
+	void test_no_Fs() {
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(1)"));
 		assertEquals("input", input.getTagName());
 		input.click();
@@ -239,7 +239,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_F() {
+	void test_F() { // Matt Hancock (mgh3x)
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(8)"));
 		assertEquals("input", input.getTagName());
 		input.click();
