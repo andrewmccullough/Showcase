@@ -51,7 +51,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_GPA_from() {
+	void test_GPA_from_A() {
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(2)"));
 		assertEquals("input", input.getTagName());
 		input.click();
@@ -80,7 +80,7 @@ class TestFile {
 
 	@Test
 	void test_GPA_from_B_plus() {
-		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(1)"));
+		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(4)"));
 		assertEquals("input", input.getTagName());
 		input.click();
 
