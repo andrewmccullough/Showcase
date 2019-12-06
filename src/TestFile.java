@@ -746,7 +746,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_30_credit_course() { // TODO : what?
+	void test_30_credit_course() {
 		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input[type=text]"));
 		assertEquals("input", credits.getTagName());
 		credits.clear();
@@ -757,7 +757,7 @@ class TestFile {
 		submit.click();
 
 		WebElement element = driver.findElement(By.cssSelector("body"));
-		assertTrue(element.getAttribute("innerHTML").contains("You have 30 hours, which is enough to graduate with an MS degree."));
+		assertTrue(element.getAttribute("innerHTML").contains("You have 30 hours")); // distinct from our test of whether a single 30-credit class is sufficient to graduate; simply testing whether high numbers of credit hours in a single course are handled properly
 		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 4.0"));
 	}
 
