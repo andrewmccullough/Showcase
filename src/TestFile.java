@@ -36,6 +36,59 @@ class TestFile {
 	}
 
 	@Test
+	void test_GPA_from_A_plus() {
+		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(1)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+		
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 4.0"));
+	}
+	@Test
+	void test_GPA_from() {
+		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(2)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+		
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 4.0"));
+	}
+	@Test
+	void test_GPA_from_A_minus() {
+		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(3)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+		
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 3.7"));
+	}
+	@Test
+	void test_GPA_from_B_plus() {
+		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(1)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+		
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 3.33"));
+	}
+
+	@Test
 	void test_2_or_less_Cs() {
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(7)"));
 		assertEquals("input", input.getTagName());
