@@ -26,7 +26,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_openURL() {
+	void test_openURL() { //Matt Hancock(mgh3x)
 		// check if we are on the right page
 		assertEquals("Grade Calculator", driver.getTitle());
 	}
@@ -46,7 +46,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_GPA_from_A() {
+	void test_GPA_from_A() { //Matt Hancock(mgh3x)
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(2)"));
 		assertEquals("input", input.getTagName());
 		input.click();
@@ -74,7 +74,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_GPA_from_B_plus() {
+	void test_GPA_from_B_plus() { //Matt Hancock(mgh3x)
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(4)"));
 		assertEquals("input", input.getTagName());
 		input.click();
@@ -102,7 +102,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_GPA_from_B_minus() {
+	void test_GPA_from_B_minus() { //Matt Hancock(mgh3x)
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(6)"));
 		assertEquals("input", input.getTagName());
 		input.click();
@@ -130,7 +130,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_GPA_from_F() {
+	void test_GPA_from_F() { //Matt Hancock(mgh3x)
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(8)"));
 		assertEquals("input", input.getTagName());
 		input.click();
@@ -154,7 +154,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_1_C() {
+	void test_1_C() { //Matt Hancock(mgh3x)
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(7)"));
 		assertEquals("input", input.getTagName());
 		input.click();
@@ -190,7 +190,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_3_or_more_Cs() {
+	void test_3_or_more_Cs() { //Matt Hancock(mgh3x)
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(7)"));
 		assertEquals("input", input.getTagName());
 		input.click();
@@ -218,7 +218,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_no_Fs() {
+	void test_no_Fs() { //Matt Hancock(mgh3x)
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(1)"));
 		assertEquals("input", input.getTagName());
 		input.click();
@@ -247,7 +247,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_blank_credits() {
+	void test_blank_credits() { //Matt Hancock(mgh3x)
 		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input:nth-child(1)"));
 		credits.clear();
 
@@ -264,7 +264,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_0_credits() {
+	void test_0_credits() { //Matt Hancock(mgh3x)
 		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input:nth-child(1)"));
 		credits.clear();
 		credits.sendKeys("0");
@@ -302,7 +302,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_1_through_29_below_3() {
+	void test_1_through_29_below_3() { //Matt Hancock(mgh3x)
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(7)"));
 		assertEquals("input", input.getTagName());
 		input.click();
@@ -415,7 +415,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_above_30_below_3() {
+	void test_above_30_below_3() { //Matt Hancock(mgh3x)
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(7)"));
 		assertEquals("input", input.getTagName());
 		input.click();
@@ -571,7 +571,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_above_30_above_3_one_F() {
+	void test_above_30_above_3_one_F() { //Matt Hancock(mgh3x)
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(3)"));
 		assertEquals("input", input.getTagName());
 		input.click();
@@ -666,7 +666,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_a_string() {
+	void test_a_string() { //Matt Hancock(mgh3x)
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(1) > input[type=text]"));
 		assertEquals("input", input.getTagName());
 		input.sendKeys("Calculus III");
@@ -702,7 +702,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_0_credit_course() {
+	void test_0_credit_course() { //Matt Hancock(mgh3x)
 		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input[type=text]"));
 		assertEquals("input", credits.getTagName());
 		credits.clear();
@@ -734,7 +734,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_2_credit_course() {
+	void test_2_credit_course() { //Matt Hancock(mgh3x)
 		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input[type=text]"));
 		assertEquals("input", credits.getTagName());
 		credits.clear();
@@ -766,7 +766,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_4_to_29_credit_course() {
+	void test_4_to_29_credit_course() { //Matt Hancock(mgh3x)
 		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input[type=text]"));
 		assertEquals("input", credits.getTagName());
 		credits.clear();
@@ -798,7 +798,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_negative_credit_course() {
+	void test_negative_credit_course() { //Matt Hancock(mgh3x)
 		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input[type=text]"));
 		assertEquals("input", credits.getTagName());
 		credits.clear();
@@ -824,7 +824,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_30_credits_10_courses() {
+	void test_30_credits_10_courses() { //Matt Hancock(mgh3x)
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(7)"));
 		assertEquals("input", input.getTagName());
 		input.click();
@@ -912,7 +912,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_back_button() {
+	void test_back_button() { //Matt Hancock(mgh3x)
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(1)"));
 		assertEquals("input", input.getTagName());
 		input.click();
@@ -961,7 +961,7 @@ class TestFile {
 	}
 
 	@Test
-	void test_refresh_button_no_resubmit() {
+	void test_refresh_button_no_resubmit() { //Matt Hancock(mgh3x)
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(1)"));
 		assertEquals("input", input.getTagName());
 		input.click();
