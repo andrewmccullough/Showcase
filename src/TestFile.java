@@ -153,16 +153,9 @@ class TestFile {
 		assertFalse(element.getAttribute("innerHTML").contains("Only 2 grades of C are allowed for graduation"));
 	}
 
+	@Test
 	void test_1_C() {
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(7)"));
-		assertEquals("input", input.getTagName());
-		input.click();
-
-		WebElement another = driver.findElement(By.cssSelector("#theForm > a"));
-		assertEquals("Add another course", another.getAttribute("innerHTML"));
-		another.click();
-
-		input = driver.findElement(By.cssSelector("#theForm > table > tbody > tr:nth-child(3) > td:nth-child(3) > input[type=radio]:nth-child(7)"));
 		assertEquals("input", input.getTagName());
 		input.click();
 
@@ -174,8 +167,17 @@ class TestFile {
 		assertFalse(element.getAttribute("innerHTML").contains("Only 2 grades of C are allowed for graduation"));
 	}
 
+	@Test
 	void test_2_Cs() {
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(7)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+
+		WebElement another = driver.findElement(By.cssSelector("#theForm > a"));
+		assertEquals("Add another course", another.getAttribute("innerHTML"));
+		another.click();
+
+		input = driver.findElement(By.cssSelector("#theForm > table > tbody > tr:nth-child(3) > td:nth-child(3) > input[type=radio]:nth-child(7)"));
 		assertEquals("input", input.getTagName());
 		input.click();
 
