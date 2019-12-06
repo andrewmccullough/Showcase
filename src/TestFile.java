@@ -786,5 +786,90 @@ class TestFile {
 
 		assertThrows(Exception.class, submit::click);
 	}
+	@Test
+	void test_30_credits_10_courses() {
+		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(7)"));
+		assertEquals("input", input.getTagName());
+		input.click();
 
+		WebElement another = driver.findElement(By.cssSelector("#theForm > a"));
+		assertEquals("Add another course", another.getAttribute("innerHTML"));
+		another.click();
+
+		input = driver.findElement(By.cssSelector("#theForm > table > tbody > tr:nth-child(3) > td:nth-child(3) > input[type=radio]:nth-child(5)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+
+		another.click();
+
+		input = driver.findElement(By.cssSelector("#theForm > table > tbody > tr:nth-child(4) > td:nth-child(3) > input[type=radio]:nth-child(6)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+		
+		another.click();
+		
+		input = driver.findElement(By.cssSelector("#theForm > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(5) > td:nth-child(3) > input:nth-child(3)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+		
+		another.click();
+		
+		input = driver.findElement(By.cssSelector("#theForm > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(6) > td:nth-child(3) > input:nth-child(1)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+		
+		another.click();
+		
+		input = driver.findElement(By.cssSelector("#theForm > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(7) > td:nth-child(3) > input:nth-child(6)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+		
+		another.click();
+		
+		input = driver.findElement(By.cssSelector("#theForm > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(8) > td:nth-child(3) > input:nth-child(4)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+		
+		another.click();
+		
+		input = driver.findElement(By.cssSelector("#theForm > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(9) > td:nth-child(3) > input:nth-child(3)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+		
+		another.click();
+		
+		input = driver.findElement(By.cssSelector("#theForm > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(10) > td:nth-child(3) > input:nth-child(3)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+		
+		another.click();
+		
+		input = driver.findElement(By.cssSelector("#theForm > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(11) > td:nth-child(3) > input:nth-child(4)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+		
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+		
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		assertTrue(element.getAttribute("innerHTML").contains("which is enough to graduate with an MS degree")); 
+	}
+	@Test
+	void test_30_credits_1_course() {
+		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input:nth-child(1)"));
+		credits.clear();
+		credits.sendKeys("30");
+		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(4)"));
+		assertEquals("input", input.getTagName());
+		input.click();
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		System.out.println(element.getAttribute("innerHTML"));
+		assertFalse(element.getAttribute("innerHTML").contains("which is enough to graduate with an MS degree"));
+	}
 }
