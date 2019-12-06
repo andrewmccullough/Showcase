@@ -31,6 +31,7 @@ class TestFile {
 		assertEquals("Grade Calculator", driver.getTitle());
 	}
 
+	// Andrew McCullough, asm4wm
 	@Test
 	void test_GPA_from_A_plus() {
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(1)"));
@@ -59,6 +60,7 @@ class TestFile {
 		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 4.0"));
 	}
 
+	// Andrew McCullough, asm4wm
 	@Test
 	void test_GPA_from_A_minus() {
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(3)"));
@@ -87,6 +89,7 @@ class TestFile {
 		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 3.33"));
 	}
 
+	// Andrew McCullough, asm4wm
 	@Test
 	void test_GPA_from_B() {
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(5)"));
@@ -115,6 +118,7 @@ class TestFile {
 		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 2.67"));
 	}
 
+	// Andrew McCullough, asm4wm
 	@Test
 	void test_GPA_from_C() {
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(7)"));
@@ -143,6 +147,7 @@ class TestFile {
 		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 0.0"));
 	}
 
+	// Andrew McCullough, asm4wm
 	@Test
 	void test_0_Cs() {
 		WebElement submit = driver.findElement(By.name("submitCourses"));
@@ -167,6 +172,7 @@ class TestFile {
 		assertFalse(element.getAttribute("innerHTML").contains("Only 2 grades of C are allowed for graduation"));
 	}
 
+	// Andrew McCullough, asm4wm
 	@Test
 	void test_2_Cs() {
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(7)"));
@@ -217,6 +223,7 @@ class TestFile {
 		assertTrue(element.getAttribute("innerHTML").contains("Only 2 grades of C are allowed for graduation"));
 	}
 
+	// Andrew McCullough, asm4wm
 	@Test
 	void test_no_Fs() {
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(1)"));
@@ -246,6 +253,7 @@ class TestFile {
 		assertTrue(element.getAttribute("innerHTML").contains("Fs cannot be used to graduate, so are not included in the total number of hours accumulated."));
 	}
 
+	// Andrew McCullough, asm4wm
 	@Test
 	void test_blank_credits() {
 		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input:nth-child(1)"));
@@ -282,6 +290,7 @@ class TestFile {
 		assertTrue(element.getAttribute("innerHTML").contains("You need 30 more hours to graduate."));
 	}
 
+	// Andrew McCullough, asm4wm
 	@Test
 	void test_1_through_29_above_3() {
 		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input:nth-child(1)"));
@@ -339,6 +348,7 @@ class TestFile {
 		assertTrue(element.getAttribute("innerHTML").contains("You need 17 more hours to graduate."));
 	}
 
+	// Andrew McCullough, asm4wm
 	@Test
 	void test_above_30_above_3() {
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(7)"));
@@ -489,6 +499,7 @@ class TestFile {
 		assertTrue(element.getAttribute("innerHTML").contains("However, you do not have the minimum GPA of 3.0."));
 	}
 
+	// Andrew McCullough, asm4wm
 	@Test
 	void test_above_30_above_3_more_Cs() {
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(4)"));
@@ -651,6 +662,7 @@ class TestFile {
 		assertTrue(element.getAttribute("innerHTML").contains("You have 31 hours, which is enough to graduate with an MS degree."));
 	}
 
+	// Andrew McCullough, asm4wm
 	@Test
 	void test_empty_string() {
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(1) > input[type=text]"));
@@ -679,6 +691,7 @@ class TestFile {
 		assertTrue(element.getAttribute("innerHTML").contains("You need 27 more hours to graduate."));
 	}
 
+	// Andrew McCullough, asm4wm
 	@Test
 	void test_strings_and_empty_strings() {
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(1) > input[type=text]"));
@@ -717,6 +730,7 @@ class TestFile {
 		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 0.0"));
 	}
 
+	// Andrew McCullough, asm4wm
 	@Test
 	void test_1_credit_course() {
 		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input[type=text]"));
@@ -749,6 +763,7 @@ class TestFile {
 		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 4.0"));
 	}
 
+	// Andrew McCullough, asm4wm
 	@Test
 	void test_3_credit_course() {
 		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input[type=text]"));
@@ -781,6 +796,7 @@ class TestFile {
 		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 4.0"));
 	}
 
+	// Andrew McCullough, asm4wm
 	@Test
 	void test_30_credit_course() {
 		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input[type=text]"));
@@ -810,6 +826,7 @@ class TestFile {
 		assertThrows(Exception.class, submit::click);
 	}
 
+	// Andrew McCullough, asm4wm
 	@Test
 	void test_invalid_character_credit_course() {
 		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input[type=text]"));
@@ -893,6 +910,7 @@ class TestFile {
 		assertTrue(element.getAttribute("innerHTML").contains("which is enough to graduate with an MS degree"));
 	}
 
+	// Andrew McCullough, asm4wm
 	@Test
 	void test_30_credits_1_course() {
 		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input:nth-child(1)"));
@@ -935,6 +953,7 @@ class TestFile {
 		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 4.0"));
 	}
 
+	// Andrew McCullough, asm4wm
 	@Test
 	void test_forward_button() {
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(1)"));
@@ -977,6 +996,7 @@ class TestFile {
 		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 4.0"));
 	}
 
+	// Andrew McCullough, asm4wm
 	@Test
 	void test_refresh_button_do_resubmit() {
 		WebElement input = driver.findElement(By.cssSelector("#firstRow > td:nth-child(3) > input[type=radio]:nth-child(1)"));
