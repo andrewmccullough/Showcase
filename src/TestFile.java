@@ -844,7 +844,7 @@ class TestFile {
 		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input[type=text]"));
 		assertEquals("input", credits.getTagName());
 		credits.clear();
-		credits.sendKeys("-5");
+		credits.sendKeys("!@$%^&*()(*&^%GHYUISDF");
 
 		WebElement submit = driver.findElement(By.name("submitCourses"));
 		assertEquals("button", submit.getTagName());
