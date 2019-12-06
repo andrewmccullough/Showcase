@@ -1,17 +1,12 @@
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-// to handle alert popup window
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.Alert;
+import static org.junit.jupiter.api.Assertions.*;
 
 class TestFile {
 	private WebDriver driver;
@@ -247,6 +242,23 @@ class TestFile {
 		WebElement element = driver.findElement(By.cssSelector("body"));
 		System.out.println(element.getAttribute("innerHTML"));
 		assertTrue(element.getAttribute("innerHTML").contains("Fs cannot be used to graduate, so are not included in the total number of hours accumulated."));
+	}
+
+	@Test
+	void test_blank_credits() {
+		WebElement credits = driver.findElement(By.cssSelector("#firstRow > td:nth-child(2) > input:nth-child(1)"));
+		credits.clear();
+
+		WebElement submit = driver.findElement(By.name("submitCourses"));
+		assertEquals("button", submit.getTagName());
+		submit.click();
+
+		WebElement element = driver.findElement(By.cssSelector("body"));
+		System.out.println(element.getAttribute("innerHTML"));
+		assertTrue(element.getAttribute("innerHTML").contains("Your current GPA is: 0.0"));
+		assertTrue(element.getAttribute("innerHTML").contains("You need 30 more hours to graduate."));
+
+		// entering no credits at all should be treated as 0 credits
 	}
 
 	@Test
